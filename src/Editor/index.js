@@ -87,6 +87,47 @@ export class Editor extends React.Component {
     return null;
   }
 
+  addUser = user => {
+    /**
+     * When user select a mention.
+     * Add a mention in the string.
+     * Also add a mention in the map
+     */
+    const { inputText, menIndex } = this.state;
+    const { initialStr, remStr } = this.getInitialAndRemainingStrings(
+      inputText,
+      menIndex
+    );
+
+    const username = `@${user.username}`;
+    const text = `${initialStr}${username} ${remStr}`;
+    //'@[__display__](__id__)' ///find this trigger parsing from react-mentions
+
+    //set the mentions in the map.
+    const menStartIndex = initialStr.length;
+    const menEndIndex = menStartIndex + (username.length - 1);
+
+    this.mentionsMap.set([menStartIndex, menEndIndex], user);
+
+    // update remaining mentions indexes
+    let charAdded = Math.abs(text.length - inputText.length);
+    this.updateMentionsMap(
+      {
+        start: menEndIndex + 1,
+        end: text.length
+      },
+      charAdded,
+      true
+    );
+
+    this.setState({
+      inputText: text,
+      formattedText: this.formatText(text)
+    });
+    this.stopTracking();
+    this.sendMessageToFooter(text);
+  };
+
   componentDidUpdate(prevProps, prevState) {
     // only update chart if the data has changed
     if (this.state.inputText !== "" && this.state.clearInput) {
