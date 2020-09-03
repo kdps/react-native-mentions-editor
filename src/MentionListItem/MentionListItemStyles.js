@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     color: "rgba(0, 0, 0, 0.1)",
     height: 50,
-    paddingHorizontal: 20,
+    paddingHorizontal: 5,
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.05)"
   },
