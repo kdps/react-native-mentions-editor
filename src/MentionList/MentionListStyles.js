@@ -5,7 +5,15 @@ export default StyleSheet.create({
     // flex:1,
     maxHeight: 300
   },
-  suggestionsPanelStyle: {},
+  suggestionsPanelStyle: {shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.48,
+  shadowRadius: 6.95,
+
+  elevation: 18,},
   loaderContainer: {},
   mentionsListContainer: {
     height: 100
