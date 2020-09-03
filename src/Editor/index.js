@@ -572,7 +572,7 @@ export class Editor extends React.Component {
               this.scroll = scroll;
             }}
             onContentSizeChange={() => {
-              this.scroll.scrollToEnd({ animated: true });
+              //this.scroll.scrollToEnd({ animated: true });
             }}
             style={[styles.editorContainer, editorStyles.editorContainer]}
           >
@@ -604,7 +604,6 @@ export class Editor extends React.Component {
                 ref={input => props.onRef && props.onRef(input)}
                 style={[styles.input, editorStyles.input]}
                 multiline
-                autoFocus
                 numberOfLines={100}
                 name={"message"}
                 value={state.inputText}
