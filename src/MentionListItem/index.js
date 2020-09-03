@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity,Image } from "react-native";
 
 // Styles
 import styles from "./MentionListItemStyles";
@@ -27,20 +27,11 @@ export class MentionListItem extends React.PureComponent {
           style={[styles.suggestionItem, editorStyles.mentionListItemWrapper]}
           onPress={() => this.onSuggestionTap(user)}
         >
-          <Avatar
-            user={user}
-            wrapperStyles={styles.thumbnailWrapper}
-            charStyles={styles.thumbnailChar}
-          />
+          <View style={[styles.text, editorStyles.mentionListItemTextWrapper, {flexDirection:"row"}]}>
 
-          <View style={[styles.text, editorStyles.mentionListItemTextWrapper]}>
+            <Image style={{width:20,height:20,borderRadius:30, marginRight:7}} source={{uri:user.profile_image}}></Image>
             <Text style={[styles.title, editorStyles.mentionListItemTitle]}>
               {user.name}
-            </Text>
-            <Text
-              style={[styles.username, editorStyles.mentionListItemUsername]}
-            >
-              @{user.username}
             </Text>
           </View>
         </TouchableOpacity>
