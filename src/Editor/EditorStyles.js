@@ -23,7 +23,8 @@ export default StyleSheet.create({
     top: 0,
     color: "transparent",
     alignSelf: "stretch",
-    width: "100%"
+    width: "100%",
+    height: '100%' 
   },
   formmatedTextWrapper: {
     minHeight: 40,
