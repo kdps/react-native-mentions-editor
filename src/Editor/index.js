@@ -570,13 +570,13 @@ export class Editor extends React.Component {
                 ref={input => props.onRef && props.onRef(input)}
                 style={[styles.input, editorStyles.input]}
                 multiline
-                autoFocus
+                //autoFocus
                 numberOfLines={100}
                 name={"message"}
                 value={null}
                 onBlur={props.toggleEditor}
                 onChangeText={this.onChange}
-                selection={selection}
+                //selection={selection}
                 selectionColor={"#000"}
                 onSelectionChange={this.handleSelectionChange}
                 placeholder={state.placeholder}
