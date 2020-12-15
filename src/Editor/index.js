@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {
+  Keyboard,
   View,
   TextInput,
   Text,
@@ -607,6 +608,8 @@ export class Editor extends React.Component {
           >
             <View style={[{ height: this.state.editorHeight }]}>              
               <TextInput
+                onSubmitEditing={Keyboard.dismiss}
+                returnKeyType={'done'}
                 onLayout={props.onLayout}
                 ref={input => props.onRef && props.onRef(input)}
                 style={[styles.input, editorStyles.input]}
